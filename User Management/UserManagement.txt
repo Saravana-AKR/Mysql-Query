@@ -1,0 +1,75 @@
+*    CREATE USER [IF NOT EXISTS] account_name IDENTIFIED BY 'password';  
+
+*    select user from mysql.user;  
+
+
+*    create user peter@localhost identified by 'jtp12345';  
+
+*    CREATE USER IF NOT EXISTS adam@localhost IDENTIFIED BY 'jtp123456'; 
+
+
+*    ALTER USER 'adam'@'localhost' IDENTIFIED BY 'adam123';
+     FLUSH PRIVILEGES;
+
+
+ Grant Privileges to the MySQL New User
+ MySQL server provides multiple types of privileges to a new user account. Some of the most commonly used privileges are given below:
+
+
+    ALL PRIVILEGES: It permits all privileges to a new user account.
+    CREATE: It enables the user account to create databases and tables.
+    DROP: It enables the user account to drop databases and tables.
+    DELETE: It enables the user account to delete rows from a specific table.
+    INSERT: It enables the user account to insert rows into a specific table.
+    SELECT: It enables the user account to read a database.
+    UPDATE: It enables the user account to update table rows.
+
+
+If you want to give all privileges to a newly created user, execute the following command.
+*    GRANT ALL PRIVILEGES ON * . * TO peter@localhost;  
+
+If you want to give specific privileges to a newly created user, execute the following command.
+*    GRANT CREATE, SELECT, INSERT ON * . * TO peter@localhost; 
+
+ 
+Sometimes, you want to flush all the privileges of a user account for changes occurs immediately, type the following command.
+
+*    FLUSH PRIVILEGES; 
+
+
+If you want to see the existing privileges for the user, execute the following command.
+
+*    SHOW GRANTS for username;  //  SHOW GRANTS FOR 'adam'@'localhost';
+
+
+
+***********************  MySQL Drop User  *************************
+
+ *   DROP USER adam@localhost, peter@localhost; 
+
+
+
+
+***********************  MySQL Show Users/List All Users  *************************
+
+*    SELECT user FROM mysql.user;
+
+
+If we want to see more information on the user table, execute the command below:
+
+*    DESC mysql.user;
+
+
+To get the selected information like as hostname, password expiration status, and account locking, execute the query as below:
+
+*    SELECT user, host, account_locked, password_expired FROM mysql.user;
+
+We can get information of the current user by using the user() or current_user() function, as shown below:
+
+
+*    Select user(); //  Select current_user(); 
+
+
+
+
+
