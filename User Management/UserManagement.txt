@@ -71,5 +71,5 @@ We can get information of the current user by using the user() or current_user()
 
 
 
-
+                                       
 
